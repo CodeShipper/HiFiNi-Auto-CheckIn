@@ -179,7 +179,8 @@ public class HifitiSignService implements ISignService {
 
         try {
             // 解析用户名: <a class="nav-link" href="my.htm"><img class="avatar-1" src="view/img/avatar.png">xx</a>
-            Pattern namePattern = Pattern.compile("<li class=\"nav-item username\"><a class=\"nav-link\" href=\"my.htm\"><img class=\"avatar-1\" src=\".*?\"> (.*?)</a></li>");
+            // Pattern namePattern = Pattern.compile("<li class=\"nav-item username\"><a class=\"nav-link\" href=\"my.htm\"><img class=\"avatar-1\" src=\".*?\"> (.*?)</a></li>");
+            Pattern namePattern = Pattern.compile("<span class=\"font-weight-bold\">(.*?)</span>");
             Matcher nameMatcher = namePattern.matcher(pageContent);
             if (nameMatcher.find()) {
                 userInfo.setUserName(nameMatcher.group(1).trim());

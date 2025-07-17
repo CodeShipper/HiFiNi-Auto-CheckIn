@@ -28,8 +28,8 @@ public class HifitiSignService implements ISignService {
     private static final Logger logger = LoggerFactory.getLogger(HifitiSignService.class);
 
     private static final OkHttpClient client = OkHttpUtils.getClient();
-    private static final String SIGN_URL = "https://www.hifiti.com/sg_sign.htm";
-    private static final String USER_INFO_URL = "https://www.hifiti.com/my.htm";
+    private static final String SIGN_URL = "https://www.gggmusic.com/sg_sign.htm";
+    private static final String USER_INFO_URL = "https://www.gggmusic.com/my.htm";
 
     // User-Agent 池
     private static final List<String> USER_AGENTS = Arrays.asList(
@@ -61,7 +61,7 @@ public class HifitiSignService implements ISignService {
                     .addHeader("Cookie", cookie)
                     .addHeader("User-Agent", userAgent)
                     .addHeader("X-Requested-With", "XMLHttpRequest")
-                    .addHeader("Referer", "https://www.hifiti.com/sg_sign.htm")
+                    .addHeader("Referer", "https://www.gggmusic.com/sg_sign.htm")
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
@@ -119,7 +119,7 @@ public class HifitiSignService implements ISignService {
                     .get()
                     .addHeader("Cookie", cookie)
                     .addHeader("User-Agent", userAgent)
-                    .addHeader("Referer", "https://www.hifiti.com/")
+                    .addHeader("Referer", "https://www.gggmusic.com/")
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
@@ -153,7 +153,7 @@ public class HifitiSignService implements ISignService {
                     .get()
                     .addHeader("Cookie", cookie)
                     .addHeader("User-Agent", userAgent)
-                    .addHeader("Referer", "https://www.hifiti.com/")
+                    .addHeader("Referer", "https://www.gggmusic.com/")
                     .build();
 
             try (Response response = client.newCall(request).execute()) {

@@ -103,7 +103,7 @@ public class Main {
         // 关闭OkHttpClient
         OkHttpUtils.getClient().dispatcher().executorService().shutdownNow();
         OkHttpUtils.getClient().connectionPool().evictAll();
-        logger.info("HiFiTi自动签到任务完成");
+        logger.info("GGGMusic自动签到任务完成");
     }
 
     /**

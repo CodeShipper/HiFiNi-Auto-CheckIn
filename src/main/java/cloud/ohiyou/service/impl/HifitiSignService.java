@@ -68,10 +68,15 @@ public class HifitiSignService implements ISignService {
                 if (!response.isSuccessful()) {
                     return new SignResultVO(0, "请求失败，Http状态码：" + response.code());
                 }
-
-                String responseBody = readResponse(response);
-                logger.info("签到响应内容: {}", responseBody);
-                return JSON.parseObject(responseBody, SignResultVO.class);
+                if (response.body() == null) {
+                    throw new IOException("Response body is null");
+                }else{
+                    ResponseBody body = response.body();
+                    byte[] bytes = body.bytes();
+                    String responseBody = new String(bytes, StandardCharsets.UTF_8);
+                    logger.info("签到响应内容: {}", responseBody);
+                    return JSON.parseObject(responseBody, SignResultVO.class);
+                }
             }
         } catch (Exception e) {
             logger.error("签到异常: {}", e.getMessage(), e);
